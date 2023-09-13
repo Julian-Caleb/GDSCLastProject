@@ -15,6 +15,13 @@
             <h2>To-Do:</h2>
             <div class="row">
                 <input type="text" id="input-box" placeholder="What to do?">
+                <input type="date" id="date-input">
+                <select id="type-select">
+                    <option value="Meeting">Meeting</option>
+                    <option value="Assignment">Assignment</option>
+                    <option value="Exam">Exam</option>
+                    <option value="Event">Event</option>
+                </select>
                 <button onclick="addTask()">Add</button>
             </div>
             <ul id="list-container">

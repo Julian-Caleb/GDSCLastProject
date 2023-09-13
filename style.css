@@ -8,7 +8,7 @@
 .container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #153677, #4e085f);
+    background: linear-gradient(135deg, #153677, #4e085f, #001f3f);
     padding: 10px;
 }
 
@@ -32,7 +32,7 @@
     width: 100%;
     max-width: 80vw;
     background: #fff;
-    margin: 50px auto 20px;
+    margin: 20px auto 20px;
     padding: 50px;
     border-radius: 10px;
 }
@@ -42,55 +42,113 @@
     margin-bottom: 10px;
 }
 
+/* Row */
 .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #edeef0;
     border-radius: 30px;
-    padding-left: 20px;
     margin-bottom: 25px;
+    padding: 12px 20px;
 }
 
-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 10px;
-}
-
+input[type="text"],
+input[type="date"],
+select,
 button {
     border: none;
     outline: none;
-    padding: 16px 50px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+input[type="text"] {
+    flex: 2;
+}
+
+button {
     background: #ff5945;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+    min-width: 80px;
+    transition: background-color 0.3s ease;
 }
 
+button:hover {
+    background: #ff4b3a;
+}
+
+select {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+input[type="date"] {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    .row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    input[type="text"] {
+        flex: initial;
+    }
+}
+
+/* List */
 /* List */
 ul li {
     list-style: none;
     font-size: 17px;
-    padding: 12px 8px 12px 50px;
+    padding: 16px 16px 16px 45px; /* Adjusted padding */
     user-select: none;
     cursor: pointer;
     position: relative;
+    background-color: #f4f4f4;
+    margin-bottom: 16px;
+}
+
+ul li strong {
+    font-weight: bold;
+    font-size: 18px;
+    color: #002765;
+    margin-bottom: 4px;
+}
+
+ul li:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
 }
 
 ul li::before {
-    content:'';
+    content: '';
     position: absolute;
     height: 28px;
     width: 28px;
     border-radius: 50%;
-
-    top: 8px;
-    left: 8px;
-
+    top: 2rem;
+    left: 10px;
     background-image: url(images/unchecked.png);
     background-size: cover;
     background-position: center;
@@ -99,6 +157,7 @@ ul li::before {
 ul li.checked {
     color: #555;
     text-decoration: line-through;
+    border-left: 4px solid #555;
 }
 
 ul li.checked::before {
@@ -107,8 +166,8 @@ ul li.checked::before {
 
 ul li span {
     position: absolute;
-    right: 0;
-    top: 5px;
+    right: 10px;
+    top: 2rem;
     width: 40px;
     height: 40px;
     font-size: 22px;
@@ -120,4 +179,25 @@ ul li span {
 
 ul li span:hover {
     background: #edeef0;
+}
+
+/* Set background colors based on the type */
+ul li.Meeting {
+    background-color: #f4f4f4;
+    border-left: 4px solid #8A2BE2;
+}
+
+ul li.Assignment {
+    background-color: #f4f4f4;
+    border-left: 4px solid #FFA500;
+}
+
+ul li.Exam {
+    background-color: #f4f4f4;
+    border-left: 4px solid #FF1493;
+}
+
+ul li.Event {
+    background-color: #f4f4f4;
+    border-left: 4px solid #00FFFF;
 }
