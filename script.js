@@ -1,6 +1,8 @@
+// Mengambil elemen
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
+// Menambah task
 function addTask() {
     if(inputBox.value === '') {
         alert("Still empty!")
@@ -26,6 +28,7 @@ listContainer.addEventListener("click", function(e) {
     }
 }, false);
 
+// Menyimpan secara lokal
 function saveData() {
     localStorage.setItem("data", listContainer.innerHTML);
 }
